@@ -1,3 +1,3 @@
-# fis-modular-jswrapper
+# fis-postprocessor-jswrapper
 
-A modular plugin for fis to wrap javascript with closure or amd define
+A postprocessor plugin for fis to wrap javascript with closure or amd define.
