@@ -6,7 +6,7 @@
 'use strict';
 module.exports = function(content, file, conf){
     //wrap
-    if(conf.type === 'amd'){
+    if(file.isMod && conf.type === 'amd'){
 //        var deps = file.requires.length ? '[\'' + file.requires.join("', '") + '\']' : '[]';
 //        content = 'define(\'' + file.getId() + '\', ' + deps + ', function(require, exports, module){\n\n' + content + '\n\n});';
         content = 'define(\'' + file.getId() + '\', function(require, exports, module){\n\n' + content + '\n\n});';
