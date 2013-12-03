@@ -13,11 +13,11 @@ module.exports = function(content, file, conf){
                 .split('${id}').join(file.getId());
         } else if(conf.type === 'amd') {
             if(!/^\s*define\s*\(/.test(content)){
-                content = 'define(\'' + file.getId() + '\', function(require, exports, module){\n\n' + content + '\n\n});';
+                content = 'define(\'' + file.getId() + '\', function(require, exports, module){ ' + content + ' });';
             }
         } else {
             if(!/^\s*(?:[!(]\s*|void\s+)function\(/.test(content)){
-                content = '!function(){try{\n\n' + content + '\n\n}catch(e){}}();';
+                content = '!function(){try{ ' + content + ' }catch(e){}}();';
             }
         }
     }
