@@ -24,3 +24,20 @@ fis.config.merge({
     }
 });
 ```
+
+或者通过 roadmap.path 局部配置
+
+```
+fis.config.set('roadmap.path', [
+    {
+        reg: '/page/**.js',
+        jswrapper: {
+            //wrap type. if omitted, it will wrap js file with '(function(){...})();'.
+            type : 'amd',
+
+            //you can use template also, ${content} means the file content
+            //template : '!function(){${content}}();'
+        }
+    }
+]);
+```
