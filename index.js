@@ -12,8 +12,6 @@ module.exports = function(content, file, conf){
         var template = getConfig('template', options, conf);
         var type = getConfig('type', options, conf);
 
-        console.log(template);
-
         // wrap
         if(template){
             content = String(template)
