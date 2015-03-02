@@ -19,11 +19,11 @@ module.exports = function(content, file, conf){
                 .split('${id}').join(file.getId());
         } else if(type === 'amd') {
             if(!/^\s*define\s*\(/.test(content)){
-                content = 'define(\'' + file.getId() + '\', function(require, exports, module){ ' + content + ' });';
+                content = 'define(\'' + file.getId() + '\', function(require, exports, module){ ' + content + ' \r\n});';
             }
         } else {
             if(!/^\s*(?:[!(]\s*|void\s+)function\(/.test(content)){
-                content = '!function(){try{ ' + content + ' }catch(e){}}();';
+                content = '!function(){try{ ' + content + ' \r\n}catch(e){}}();';
             }
         }
     }
