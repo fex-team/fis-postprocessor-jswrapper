@@ -18,7 +18,7 @@ module.exports = function(content, file, conf){
                 .split('${content}').join(content)
                 .split('${id}').join(file.getId());
         } else if(type === 'amd') {
-            if(!/\s*define\s*\(/.test(content)){
+            if(!/(^|[^.])\bdefine\s*\(/.test(content)){
                 content = 'define(\'' + file.getId() + '\', function(require, exports, module){ ' + content + ' \r\n});';
             }
         } else {
