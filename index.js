@@ -12,11 +12,20 @@ module.exports = function (content, file, conf) {
         var template = getConfig('template', options, conf);
         var type = getConfig('type', options, conf);
 
+        //扩展template能力，支持function
+        if(typeof template==='function'){
+            var temp = template(file);
+            if(temp){
+                template = temp;
+            }
+        }
         // wrap
         if (template) {
             content = String(template)
                 .split('${content}').join(content)
-                .split('${id}').join(file.getId());
+                .split('${id}').join(file.getId())
+                .split('${hash}').join(file.getHash());
+                //增加md5
         } else if (type === 'amd') {
             if (!/^\s*define\s*\(/.test(content)) {
                 content = 'define(\'' + file.getId() + '\', function(require, exports, module){ ' + content +
