@@ -23,8 +23,7 @@ module.exports = function (content, file, conf) {
         if (template) {
             content = String(template)
                 .split('${content}').join(content)
-                .split('${id}').join(file.getId())
-                .split('${hash}').join(file.getHash());
+                .split('${id}').join(file.getId());
                 //增加md5
         } else if (type === 'amd') {
             if (!/^\s*define\s*\(/.test(content)) {
